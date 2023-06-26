@@ -1,5 +1,5 @@
 import { useSearch } from "@/providers/SearchProvider";
-import { ChangeEvent, ChangeEventHandler } from "react";
+import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 
 const SearchBar = () => {
   const { searchValue, setSearchValue } = useSearch();
@@ -9,13 +9,16 @@ const SearchBar = () => {
   };
 
   return (
-    <input
-      name="hero"
-      type="text"
-      value={searchValue}
-      onChange={handleChange}
-      className="flex md:min-w-[600px] p-[12px] rounded text-[22px]"
-    />
+    <span className="relative">
+      <MagnifyingGlassIcon className="text-primary h-[33px] absolute left-[12px] top-[12px]" />
+      <input
+        name="hero"
+        type="text"
+        value={searchValue}
+        onChange={handleChange}
+        className="flex md:min-w-[600px] p-[12px] pl-[56px] rounded text-[22px] text-primary"
+      />
+    </span>
   );
 };
 
