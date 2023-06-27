@@ -1,14 +1,20 @@
 import { useSearch, type Hero } from "@/providers/SearchProvider";
 import Image from "next/image";
-import Link from "next/link";
+import { useRouter } from "next/router";
 
 const HeroCard = ({ hero }: { hero: Hero }) => {
-  const { heroImagePath } = useSearch();
+  const { heroImagePath, setSearchValue } = useSearch();
+  const router = useRouter();
+
+  const handleClick = () => {
+    setSearchValue("");
+    router.push(`/hero/${hero.id}`);
+  };
 
   return (
-    <Link
-      href={`/hero/${hero.id}`}
-      className="p-[8px] rounded bg-white flex justify-start mb-[20px]"
+    <button
+      onClick={handleClick}
+      className="p-[12px] rounded bg-white flex justify-start items-center mb-[20px]"
     >
       <span className="w-[50px] h-[75px]">
         <Image
@@ -22,10 +28,10 @@ const HeroCard = ({ hero }: { hero: Hero }) => {
           width={75}
         />
       </span>
-      <div className="ml-[12px]">
-        <span className="text-[16px] font-semibold">{hero.name}</span>
+      <div className="ml-[18px]">
+        <span className="text-[18px] font-semibold">{hero.name}</span>
       </div>
-    </Link>
+    </button>
   );
 };
 
