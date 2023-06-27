@@ -21,6 +21,30 @@ type MoreInfoUrl = {
 
 type CharactersUrls = MoreInfoUrl[];
 
+type PortraitImageVariants =
+  | "portrait_small"
+  | "portrait_medium"
+  | "portrait_xlarge"
+  | "portrait_fantastic"
+  | "portrait_uncanny"
+  | "portrait_incredible";
+
+type StandardImageVariants =
+  | "standard_small"
+  | "standard_medium"
+  | "standard_large"
+  | "standard_xlarge"
+  | "standard_fantastic"
+  | "standard_amazing";
+
+type LandscapeImageVariants =
+  | "landscape_small"
+  | "landscape_medium"
+  | "landscape_large"
+  | "landscape_xlarge"
+  | "landscape_amazing"
+  | "landscape_incredible";
+
 export type Hero = {
   id: number;
   name: string;
@@ -35,11 +59,21 @@ export type Hero = {
   urls: CharactersUrls;
 };
 
+export type HeroImageOps = {
+  path: string;
+  extension: string;
+  variant:
+    | PortraitImageVariants
+    | StandardImageVariants
+    | LandscapeImageVariants;
+};
+
 interface SearchContext {
   searchActive: boolean;
   searchValue: string;
   setSearchValue: (value: string) => void;
   heros: Hero[] | [];
+  heroImagePath: (ops: HeroImageOps) => string;
 }
 
 const DEFAULT_VALUES = {
@@ -47,6 +81,7 @@ const DEFAULT_VALUES = {
   searchValue: "",
   setSearchValue: (value: string) => {},
   heros: [],
+  heroImagePath: (ops: HeroImageOps) => "",
 };
 
 const SearchContext = createContext<SearchContext>(DEFAULT_VALUES);
@@ -78,6 +113,12 @@ export const SearchProvider = ({ children }: { children: React.ReactNode }) => {
       });
   };
 
+  const heroImagePath = (imageOpts: HeroImageOps) => {
+    const imageUrl = `${imageOpts.path}/${imageOpts.variant}.${imageOpts.extension}`;
+
+    return imageUrl;
+  };
+
   useEffect(() => {
     if (searchValue.length >= 2) {
       fetchForHeros();
@@ -89,6 +130,7 @@ export const SearchProvider = ({ children }: { children: React.ReactNode }) => {
     searchValue,
     setSearchValue,
     heros,
+    heroImagePath,
   };
 
   return (
