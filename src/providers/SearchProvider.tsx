@@ -1,7 +1,6 @@
 import { checkThumbnail } from "@/utils";
 import { createContext, useContext, useEffect, useState } from "react";
-
-const MARVEL_API_KEY = "2691643914b2e2abf77b6b5b7de5b867";
+import { MARVEL_API_KEY } from "../../public/auth/marvel";
 
 type Thumbnail = {
   path: string;
@@ -101,13 +100,13 @@ export const SearchProvider = ({ children }: { children: React.ReactNode }) => {
   const [searchValue, setSearchValue] = useState<string>("");
   const [heros, setHeros] = useState<Hero[]>([]);
 
-  const fetchForHeros = () => {
+  const fetchForHeros = async () => {
     const endpoint = new URL(
       `characters?limit=100&nameStartsWith=${searchValue}&apikey=${MARVEL_API_KEY}`,
       "http://gateway.marvel.com/v1/public/"
     );
 
-    fetch(endpoint)
+    await fetch(endpoint)
       .then((_res) => _res.json())
       .then((res) => {
         const allHeros: Hero[] = res.data.results;
