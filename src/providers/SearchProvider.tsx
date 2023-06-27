@@ -1,3 +1,4 @@
+import { checkThumbnail } from "@/utils";
 import { createContext, useContext, useEffect, useState } from "react";
 
 const MARVEL_API_KEY = "2691643914b2e2abf77b6b5b7de5b867";
@@ -109,7 +110,13 @@ export const SearchProvider = ({ children }: { children: React.ReactNode }) => {
     fetch(endpoint)
       .then((_res) => _res.json())
       .then((res) => {
-        setHeros(res.data.results);
+        const allHeros: Hero[] = res.data.results;
+
+        const withImageHeros = allHeros.filter((hero) =>
+          checkThumbnail(hero.thumbnail.path)
+        );
+
+        setHeros(withImageHeros);
       });
   };
 
