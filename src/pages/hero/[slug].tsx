@@ -1,6 +1,5 @@
-import type { Hero } from "@/providers/SearchProvider";
 import { GetStaticPaths, GetStaticProps } from "next";
-import { MARVEL_API_KEY } from "../../../public/auth/marvel";
+import { Hero } from "@/types";
 import { default as Container } from "@/templates/default";
 
 const HeroPage = ({ heroInfo }: { heroInfo: Hero }) => {
@@ -10,29 +9,29 @@ const HeroPage = ({ heroInfo }: { heroInfo: Hero }) => {
 export default HeroPage;
 
 const getHeroData = async (heroId: string) => {
-  let heroData: Hero | {} = {};
-  const endpoint = new URL(
-    `characters/${heroId}?apikey=${MARVEL_API_KEY}`,
-    "http://gateway.marvel.com/v1/public/"
-  );
+  let heroData;
+  const endpoint = new URL(`hero/${heroId}?`, "http://localhost:8000");
 
   await fetch(endpoint)
     .then((_res) => _res.json())
     .then((res) => {
-      console.log(res.data);
-      heroData = res.data.results;
+      console.log("res", res);
+      console.log("data", res.data);
+      heroData = res;
     });
 
   return heroData;
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const heroId = params?.heroId;
-  let heroInfo: Hero | {} = {};
+  const heroId = params?.slug;
+  let heroInfo: Hero | undefined = undefined;
 
   if (typeof heroId === "string") {
     heroInfo = await getHeroData(heroId);
   }
+
+  console.log("heroInfo", heroInfo);
 
   return { props: { heroInfo } };
 };
