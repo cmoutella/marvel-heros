@@ -1,9 +1,15 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import { Hero } from "@/types";
+
 import { default as Container } from "@/templates/default";
+import HeroHeader from "@/components/HeroHeader";
 
 const HeroPage = ({ heroInfo }: { heroInfo: Hero }) => {
-  return <Container>My name is {heroInfo.name}</Container>;
+  return (
+    <Container>
+      <HeroHeader heroInfo={heroInfo} />
+    </Container>
+  );
 };
 
 export default HeroPage;

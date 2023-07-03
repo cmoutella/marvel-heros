@@ -1,7 +1,8 @@
 import SearchBar from "@/components/SearchBar";
-import { Hero, useSearch } from "@/providers/SearchProvider";
+import { useSearch } from "@/providers/SearchProvider";
 import HeroCard from "@/components/HeroCard";
 import { default as Container } from "@/templates/default";
+import { Hero } from "@/types";
 
 export default function Home() {
   const { heros, searchActive } = useSearch();
