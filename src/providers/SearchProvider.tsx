@@ -37,20 +37,16 @@ export const SearchProvider = ({ children }: { children: React.ReactNode }) => {
 
   const fetchForHeros = async () => {
     const endpoint = new URL(
-      `characters?limit=100&nameStartsWith=${searchValue}&apikey=${MARVEL_API_KEY}`,
-      "http://gateway.marvel.com/v1/public/"
+      `/api/heros?nameStartsWith=${searchValue}`,
+      window.location.origin
     );
 
     await fetch(endpoint)
       .then((_res) => _res.json())
       .then((res) => {
-        const allHeros: Hero[] = res.data.results;
+        const heros: Hero[] = res;
 
-        const withImageHeros = allHeros.filter((hero) =>
-          checkThumbnail(hero.thumbnail.path)
-        );
-
-        setHeros(withImageHeros);
+        setHeros(heros);
       });
   };
 
