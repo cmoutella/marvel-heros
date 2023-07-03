@@ -1,9 +1,11 @@
-import { useSearch, type Hero } from "@/providers/SearchProvider";
+import { useSearch } from "@/providers/SearchProvider";
+import { Hero } from "@/types";
+import { heroImagePath } from "@/utils";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
 const HeroCard = ({ hero }: { hero: Hero }) => {
-  const { heroImagePath, setSearchValue } = useSearch();
+  const { setSearchValue } = useSearch();
   const router = useRouter();
 
   const handleClick = () => {

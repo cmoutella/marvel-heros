@@ -8,7 +8,6 @@ interface SearchContext {
   searchValue: string;
   setSearchValue: (value: string) => void;
   heros: Hero[] | [];
-  heroImagePath: (ops: HeroImageOps) => string;
 }
 
 const DEFAULT_VALUES = {
@@ -16,7 +15,6 @@ const DEFAULT_VALUES = {
   searchValue: "",
   setSearchValue: (value: string) => {},
   heros: [],
-  heroImagePath: (ops: HeroImageOps) => "",
 };
 
 const SearchContext = createContext<SearchContext>(DEFAULT_VALUES);
@@ -50,12 +48,6 @@ export const SearchProvider = ({ children }: { children: React.ReactNode }) => {
       });
   };
 
-  const heroImagePath = (imageOpts: HeroImageOps) => {
-    const imageUrl = `${imageOpts.path}/${imageOpts.variant}.${imageOpts.extension}`;
-
-    return imageUrl;
-  };
-
   useEffect(() => {
     if (searchValue.length >= 2) {
       fetchForHeros();
@@ -67,7 +59,6 @@ export const SearchProvider = ({ children }: { children: React.ReactNode }) => {
     searchValue,
     setSearchValue,
     heros,
-    heroImagePath,
   };
 
   return (
