@@ -21,6 +21,7 @@ module.exports = {
         darker: "#212121",
         gray: {
           light: "#e5e5e5",
+          medium: "#b2b2b2",
           ash: "#767676",
           charcoal: "#151515",
         },
