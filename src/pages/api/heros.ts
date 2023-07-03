@@ -26,6 +26,6 @@ export default async function handler(
 
     res.status(200).json(withImageHeros)
   } catch (err) {
-    res.status(404).json({ data: 'Hero not found' })
+    res.status(404).json({ data: 'Heros not found' })
   }
 }

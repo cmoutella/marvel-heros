@@ -10,14 +10,20 @@ export default HeroPage;
 
 const getHeroData = async (heroId: string) => {
   let heroData;
-  const endpoint = new URL(`hero/${heroId}?`, "http://localhost:8000");
+  const endpoint = new URL(
+    `api/hero/${heroId}`,
+    "http://marvel-middleware.deno.dev/"
+  );
 
   await fetch(endpoint)
     .then((_res) => _res.json())
     .then((res) => {
-      console.log("res", res);
-      console.log("data", res.data);
       heroData = res;
+    })
+    .catch(() => {
+      heroData = {
+        data: "Hero not found",
+      };
     });
 
   return heroData;
@@ -25,13 +31,11 @@ const getHeroData = async (heroId: string) => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const heroId = params?.slug;
-  let heroInfo: Hero | undefined = undefined;
+  let heroInfo;
 
   if (typeof heroId === "string") {
     heroInfo = await getHeroData(heroId);
   }
-
-  console.log("heroInfo", heroInfo);
 
   return { props: { heroInfo } };
 };
