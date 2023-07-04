@@ -1,14 +1,14 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import { Hero } from "@/types";
 
-import { default as Container } from "@/templates/default";
+import { Show as Template } from "@/templates";
 import HeroHeader from "@/components/HeroHeader";
 
 const HeroPage = ({ heroInfo }: { heroInfo: Hero }) => {
   return (
-    <Container>
+    <Template>
       <HeroHeader heroInfo={heroInfo} />
-    </Container>
+    </Template>
   );
 };
 
