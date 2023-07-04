@@ -5,6 +5,7 @@ O projeto está sendo desenvolvido como trabalho de mentoria com desenvolvedores
 
 - Next.js
 - React.js
+- TypeScript
 - Tailwind
 - Rest API
 - Testes unitários (jest + testing libraty)
@@ -22,13 +23,16 @@ Recomenda-se conhecer os conceitos de:
 - DOM
 - Git
 
+Proposta de design a seguir:
+[Figma do Projeto](https://www.figma.com/file/UbvLpErAu2FSpeyirfUjC1/MARVEL-HEROS?type=design&node-id=0%3A1&mode=design&t=fPsu8gETIkZRynxX-1)
+
 
 ## Para enviar seu código
-- Vá na aba de ISSUES e escolha a que irá trabalhar;
+- Vá na [aba de ISSUES](https://github.com/cmoutella/marvel-heros/issues) e escolha a que irá trabalhar;
 - Faça o FORK do repositório;
 - Abra uma nova branch com e utilize a issue como nome  `issue_[NUMERO_DA_ISSUE]/[TITULO_DA_ISSUE]`
 - Desenvolva a solução
-- Abra um PR para o repositório original, apontando para a branch MAIN.
+- [Abra um PR](https://github.com/cmoutella/marvel-heros/blob/main/PRPATTERN.md) para o repositório original, apontando para a branch MAIN.
 
 ## Padrão de commit
 `feat(component): description`
