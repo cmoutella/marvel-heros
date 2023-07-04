@@ -1,35 +1,67 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Welcome
 
-## Getting Started
+Esse projeto está sendo desenvolvido com objetivos de estudo e comunidade.
+O projeto está sendo desenvolvido como trabalho de mentoria com desenvolvedores iniciantes que tenham interesse de aprender sobre as seguintes tecnologias:
 
-First, run the development server:
+- Next.js
+- React.js
+- Tailwind
+- Rest API
+- Testes unitários (jest + testing libraty)
+- Server side
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+É necessário conhecimento prévio em:
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- CSS
+- HTML
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Recomenda-se conhecer os conceitos de:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- DOM
+- Git
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+## Para enviar seu código
+- Vá na aba de ISSUES e escolha a que irá trabalhar;
+- Faça o FORK do repositório;
+- Abra uma nova branch com e utilize a issue como nome  `issue_[NUMERO_DA_ISSUE]/[TITULO_DA_ISSUE]`
+- Desenvolva a solução
+- Abra um PR para o repositório original, apontando para a branch MAIN.
+
+## Padrão de commit
+`feat(component): description`
+
+Entenda mais sobre padrões de commit:
+- [PT - Medium](https://medium.com/linkapi-solutions/conventional-commits-pattern-3778d1a1e657)
+- [EN - dev.to](https://dev.to/helderberto/patterns-for-writing-better-git-commit-messages-4ba0)
+
+## API
+Para realizar as chamadas server-side à [MarvelAPI](https://developer.marvel.com/) estamos utilizando o [Deno](https://deno.com/deploy).
+Os endpoints disponíveis estão no repositório [marvel-middleware](https://github.com/cmoutella/marvel-middleware).
+
+
+## Como rodar o projeto
+
+- Clone o seu fork
+- Abra o repositório localmente e instale as dependências com `yarn install`.
+- Rode o projeto com `yarn dev`
+- Acesse [http://localhost:3000](http://localhost:3000) para acessar o projeto.
+
+
+## Documentação das técnologias usadas
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Tailwind](https://tailwindcss.com/)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+
+____________________
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
 ## Deploy on Vercel
 
