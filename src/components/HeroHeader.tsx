@@ -32,20 +32,22 @@ const HeroHeader = ({ heroInfo }: { heroInfo: Hero }) => {
 
   return (
     <>
-      <div className="bg-dark w-full flex justify-center pt-[80px] px-24 pb-24">
-        <div className="border-[3px] border-gray-medium mr-[32px]">
-          <Image
-            src={heroImagePath({
-              path: heroInfo.thumbnail.path,
-              extension: heroInfo.thumbnail.extension,
-              variant: "portrait_xlarge",
-            })}
-            alt={heroInfo.name}
-            width={300}
-            height={500}
-          />
+      <div className="w-full bg-primary pt-[100px] pb-24">
+        <div className="container flex justify-center ">
+          <div className="border-[3px] border-gray-medium mr-[32px]">
+            <Image
+              src={heroImagePath({
+                path: heroInfo.thumbnail.path,
+                extension: heroInfo.thumbnail.extension,
+                variant: "portrait_xlarge",
+              })}
+              alt={heroInfo.name}
+              width={300}
+              height={500}
+            />
+          </div>
+          <h1 className="mb-[62px]">{heroName()}</h1>
         </div>
-        <h1 className="mb-[62px]">{heroName()}</h1>
       </div>
     </>
   );

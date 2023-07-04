@@ -1,4 +1,6 @@
+import { RefObject } from "react";
 
+// Data types
 type Thumbnail = {
   path: string;
   extension: string;
@@ -65,3 +67,7 @@ export type HeroImageOps = {
     | StandardImageVariants
     | LandscapeImageVariants;
 };
+
+// UI Types
+
+export type NavbarRef = RefObject<HTMLDivElement> | null

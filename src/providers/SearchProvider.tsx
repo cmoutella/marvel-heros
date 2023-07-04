@@ -1,7 +1,5 @@
-import { checkThumbnail } from "@/utils";
 import { createContext, useContext, useEffect, useState } from "react";
-import { MARVEL_API_KEY } from "../../public/auth/marvel";
-import { Hero, HeroImageOps } from "@/types";
+import { Hero } from "@/types";
 
 interface SearchContext {
   searchActive: boolean;
