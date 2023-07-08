@@ -9,7 +9,7 @@ export default function Home() {
 
   return (
     <Template>
-      <div className="w-full flex flex-col items-center pt-[80px] px-24 pb-24">
+      <div className="w-full flex flex-col items-center pt-[80px] px-24 pb-24 bg-dark">
         <h1 className="text-white text-[98px] mb-[62px]">
           Who is your <span className="text-primary">hero</span>?
         </h1>

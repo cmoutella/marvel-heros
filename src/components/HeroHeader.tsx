@@ -32,8 +32,8 @@ const HeroHeader = ({ heroInfo }: { heroInfo: Hero }) => {
 
   return (
     <>
-      <div className="w-full bg-primary pt-[100px] pb-24">
-        <div className="container flex justify-center ">
+      <div className="w-full flex justify-center pt-[100px] pb-24">
+        <div className="container flex justify-center">
           <div className="border-[3px] border-gray-medium mr-[32px]">
             <Image
               src={heroImagePath({
